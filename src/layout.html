@@ -14,6 +14,7 @@
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
+    <link rel="stylesheet" href="./styles/styles.css">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -22,45 +23,47 @@
     <![endif]-->
   </head>
   <body>
-    <div class="row">
-      <div class="col-md-8">
-        <p> <b>5</b> hotels <b>Sydney.</b></p>
-      </div>
-      <div class="col-md-4">
-        <div class="dropdown" align="right">
-          <label for="dropdownMenu1">Sort by</label>
-          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-            Top Deals
-            <span class="caret"></span>
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-            <li><a href="#">Price (high-low)</a></li>
-            <li><a href="#">Price (low-high)</a></li>
-            <li><a href="#">Name (A-Z)</a></li>
-          </ul>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <p> <b>5</b> hotels in <b>Sydney.</b></p>
+        </div>
+        <div class="col-md-4">
+          <div class="dropdown" align="right">
+            <label for="dropdownMenu1">Sort by</label>
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              Top Deals
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+              <li><a href="#">Price (high-low)</a></li>
+              <li><a href="#">Price (low-high)</a></li>
+              <li><a href="#">Name (A-Z)</a></li>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-md-2">
-        <img src="https://unsplash.it/145/125/?random" alt="">
-      </div>
-      <div class="col-md-6">
-        <p><b>Primus Hotel Sydney</b></p>
-        <p>339 Pitt St, Sydney</p>
-        <br>
-        <p>Deluxe Balcony Room</p>
-        <br>
-        <p><span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span> Free cancellation</p>
-      </div>
-      <div class="col-md-2" align="right">
-        <p>Quantas points earned*</p>
-        <p>2250</p>
-      </div>
-      <div class="col-md-2" align="right">
-        <p>1 night total (AUD)</p>
-        <p><span class="glyphicon glyphicon-usd" aria-hidden="true"></span> 375</p>
-        <p>Save $28~</p>
+      <div class="row">
+        <div class="col-md-2">
+          <img src="https://unsplash.it/145/125/?random" alt="">
+        </div>
+        <div class="col-md-6">
+          <h4 class="hotel-name">Primus Hotel Sydney</h4>
+          <p class="hotel-address">339 Pitt St, Sydney</p>
+          <br>
+          <p class="room-name">Deluxe Balcony Room</p>
+          <br>
+          <p class="free-cancellation"><span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span> Free cancellation</p>
+        </div>
+        <div class="col-md-2 points-earned">
+          <p class="points-earned-title">Quantas points earned*</p>
+          <p class="points-earned">2250</p>
+        </div>
+        <div class="col-md-2 price">
+          <p class="total-nights"> <b>1</b> night total (AUD)</p>
+          <p class="price"><span class="price">$</span>375</p>
+          <p class="savings">Save $28~</p>
+        </div>
       </div>
     </div>
 

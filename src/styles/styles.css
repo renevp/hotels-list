@@ -14,3 +14,67 @@ a.active {
 nav {
   padding-top: 20px;
 }
+
+/*Quantas hotels styles*/
+
+h4.hotel-name {
+  font-weight: bold;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+p.hotel-address {
+  font-size: 0.875em;
+  color: grey;
+}
+
+p.room-name {
+  font-size: 0.875em;
+  text-decoration: underline;
+  color: red;
+}
+
+p.free-cancellation {
+  font-size: 0.875em;
+  color: green;
+}
+
+div.points-earned {
+  text-align: right;
+}
+
+p.points-earned-title {
+  font-size: 0.875em;
+  color: orange;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+p.points-earned {
+  color: orange;
+  font-weight: bold;
+}
+
+div.price {
+  text-align: right;
+}
+
+p.total-nights {
+  font-size: 0.875em;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+p.price {
+  font-size: 2em;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+span.price {
+  font-size: 0.5em;
+}
+
+p.savings {
+  color: red;
+}
