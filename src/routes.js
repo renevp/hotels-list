@@ -3,7 +3,7 @@ import { Route, IndexRoute } from 'react-router';
 import App from './components/App';
 import HomePage from './components/home/HomePage';
 import AboutPage from './components/about/AboutPage';
-import HotelsPage from './components/hotel/HotelsPage'
+import HotelsPage from './components/hotel/HotelsPage';
 
 export default (
   <Route path="/" component={App}>
