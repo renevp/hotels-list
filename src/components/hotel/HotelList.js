@@ -1,24 +1,15 @@
 import React, {PropTypes} from 'react';
+import HotelSort from './HotelSort';
 import HotelListRow from './HotelListRow';
 
 const HotelList = ({hotels}) => {
   return (
-    <table className="table">
-      <thead>
-      <tr>
-        <th>&nbsp;</th>
-        <th>Title</th>
-        <th>Address</th>
-        <th>Image</th>
-        <th>Rating</th>
-      </tr>
-      </thead>
-      <tbody>
+    <div className="col-md-12">
+      <HotelSort hotels={hotels}/>
       {hotels.map(hotel =>
         <HotelListRow key={hotel.id} hotel={hotel}/>
       )}
-      </tbody>
-    </table>
+    </div>
   );
 };
 
