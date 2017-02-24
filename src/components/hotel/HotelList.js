@@ -3,6 +3,7 @@ import HotelSort from './HotelSort';
 import HotelListRow from './HotelListRow';
 
 const HotelList = ({hotels}) => {
+  console.log(hotels);
   return (
     <div className="col-md-12">
       <HotelSort hotels={hotels}/>

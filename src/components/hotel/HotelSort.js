@@ -8,7 +8,7 @@ const HotelSort = ({hotels}) => {
       </div>
       <div className="col-md-4" align="right">
         <div className="dropdown" >
-          <label for="dropdownMenu1">Sort by</label>
+          <label htmlFor="dropdownMenu1">Sort by</label>
           <button className="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
             Top Deals
             <span className="caret"></span>
