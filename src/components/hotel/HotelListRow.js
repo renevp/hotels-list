@@ -22,8 +22,9 @@ function pointsEarned(room){
 const HotelListRow = ({hotel}) => {
   return (
     <div className="row">
-      <div className="col-md-3">
+      <div className="col-md-3 hotel-image">
         <img src={hotel.image} alt=""/>
+        <span className="hotel-promotion">{hotel.promotion}</span>
       </div>
       <div className="col-md-5">
         <h5 className="hotel-name">{hotel.title}</h5>

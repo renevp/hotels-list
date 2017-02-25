@@ -78,3 +78,18 @@ span.price {
 p.savings {
   color: red;
 }
+
+.hotel-image {
+  position: relative;
+}
+
+.hotel-promotion {
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  background-color: white;
+  color: red;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 3px;
+}

@@ -16,6 +16,8 @@ class HotelsPage extends React.Component {
   }
 
   sortList(event) {
+    event.preventDefault();
+
     const sort = event.target.value;
     const {hotels} = this.props;
 

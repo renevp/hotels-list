@@ -7,14 +7,12 @@ const HotelSort = ({hotels, query, sortFilters, onChange}) => {
       <div className="col-md-8">
         <p> <b>{hotels.length}</b> hotels in <b>{query.location}.</b></p>
       </div>
-      <form>
-        <SelectInput
-          name="sortId"
-          label="Sort by"
-          defaultOption="Top Deals"
-          onChange={onChange}
-          options={sortFilters}/>
-      </form>
+      <SelectInput
+        name="sortId"
+        label="Sort by"
+        defaultOption="Top Deals"
+        onChange={onChange}
+        options={sortFilters}/>
     </div>
   );
 };
