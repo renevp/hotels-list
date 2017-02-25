@@ -6,7 +6,6 @@ export function listHotelsSuccess(hotels) {
 }
 
 export function listHotels() {
-  console.log('listHotels');
   return function(dispatch) {
     return hotelApi.searchHotels().then(hotels => {
       dispatch(listHotelsSuccess(hotels));

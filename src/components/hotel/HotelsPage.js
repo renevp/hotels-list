@@ -1,28 +1,42 @@
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import * as hotelActions from '../../actions/hotelActions';
+import _ from 'lodash';
 import HotelList from './HotelList';
 
 class HotelsPage extends React.Component {
   constructor(props, context) {
     super(props, context);
 
+    this.state = {
+      hotels: Object.assign([], props.hotels)
+    };
+
     this.sortList = this.sortList.bind(this);
   }
 
   sortList(event) {
-    // const field = event.target.name;
-    // let course = this.state.course;
-    // course[field] = event.target.value;
-    // return this.setState({course: course});
+    const sort = event.target.value;
+    const {hotels} = this.props;
 
-    this.props.actions.listHotels()
-      // .then(() => this.redirect())
-      .catch(error => {
-        // toastr.error(error);
-        // this.setState({saving: false});
-      });
+    let sortedHotels;
+    switch (sort) {
+      case 'name-asc':
+        sortedHotels = _.orderBy(hotels, ['title'], ['asc']);
+        break;
+      case 'price-desc':
+        sortedHotels = _.orderBy(hotels, ['rooms[0].price'], ['desc']);
+        break;
+      case 'price-asc':
+        sortedHotels = _.orderBy(hotels, ['rooms[0].price'], ['asc']);
+        break;
+      case 'top-deals':
+        sortedHotels = _.orderBy(hotels, ['rooms[0].savings'], ['asc']);
+        break;
+      default:
+    }
+
+    return this.setState({hotels: sortedHotels});
   }
 
   render() {
@@ -34,7 +48,7 @@ class HotelsPage extends React.Component {
       <div>
         <h1>Hotels</h1>
         <HotelList
-          hotels={hotels}
+          hotels={this.state.hotels}
           query={query}
           sortFilters={sortFilters}
           onChange={this.sortList}
@@ -69,9 +83,6 @@ function mapStateToProps(state, ownProps) {
     });
   }
 
-  console.log(hotels);
-  console.log(query);
-  console.log(sortFilters);
   return {
     hotels: hotels,
     query: query,
@@ -79,10 +90,4 @@ function mapStateToProps(state, ownProps) {
   };
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: bindActionCreators(hotelActions, dispatch)
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(HotelsPage);
+export default connect(mapStateToProps)(HotelsPage);
