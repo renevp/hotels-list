@@ -9,7 +9,7 @@ const Price = ({room}) => {
   }
 
   return (
-    <div className="col-md-2 price">
+    <div className="col-xs-3 price">
       <p className="total-nights"> <b>1</b> night total (AUD)</p>
       <p className="price"><span className="price"></span>{room.price}</p>
       {savings}

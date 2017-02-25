@@ -10,7 +10,7 @@ function pointsEarned(room){
 
 const PointsEarned = ({room}) => {
   return (
-    <div className="col-md-2 points-earned">
+    <div className="col-xs-3 points-earned">
       {pointsEarned(room)}
     </div>
   );

@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react';
 
 function freeCancellation(room){
   if (room.free_cancellation == "true") {
-    return <div><span className="glyphicon glyphicon-ok-circle" aria-hidden="true"></span>Free cancellation</div>;
+    return <span><span className="glyphicon glyphicon-ok-circle" aria-hidden="true"></span>Free cancellation</span>;
   }
 }
 

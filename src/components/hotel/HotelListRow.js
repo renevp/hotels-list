@@ -15,20 +15,28 @@ const HotelListRow = ({hotel}) => {
   const room = hotel.rooms[0];
   return (
     <div className="row">
-      <div className="col-md-3 hotel-image">
+      <div className="col-xs-3 hotel-image">
         <img src={hotel.image} />
         <span className="hotel-promotion">{hotel.promotion}</span>
       </div>
-      <div className="col-md-5">
-        {formatTitle(hotel.title)}
-        <p className="hotel-address">{hotel.address}</p>
-        <br/>
-        <p className="room-name">{room.name}</p>
-        <br/>
-        <FreeCancellation room={room}/>
+      <div className="col-xs-9">
+        <div className="row">
+          <div className="col-xs-12">
+            {formatTitle(hotel.title)}
+            <p className="hotel-address">{hotel.address}</p>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-xs-6">
+            <br/>
+            <p className="room-name">{room.name}</p>
+            <br/>
+            <FreeCancellation room={room}/>
+          </div>
+          <PointsEarned room={room}/>
+          <Price room={room}/>
+        </div>
       </div>
-      <PointsEarned room={room}/>
-      <Price room={room}/>
     </div>
   );
 };

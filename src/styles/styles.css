@@ -44,7 +44,7 @@ div.points-earned {
 }
 
 .points-earned-title {
-  font-size: 0.875em;
+  font-size: 0.775em;
   color: orange;
   margin-top: 0px;
   margin-bottom: 0px;
@@ -60,7 +60,7 @@ div.price {
 }
 
 .total-nights {
-  font-size: 0.875em;
+  font-size: 0.775em;
   margin-top: 0px;
   margin-bottom: 0px;
 }
@@ -92,4 +92,13 @@ span.price {
   font-size: 12px;
   font-weight: bold;
   padding: 3px;
+}
+
+.col-md-3 {
+  width: 20% !important;
+}
+
+.container-fluid {
+  width: 700px;
+  max-width: none !important;
 }
