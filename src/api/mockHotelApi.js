@@ -9,7 +9,7 @@ class HotelApi {
   static searchHotels() {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        resolve(Object.assign([], data.hotels));
+        resolve(Object.assign([], data));
       }, delay);
     });
   }

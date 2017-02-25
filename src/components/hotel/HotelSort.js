@@ -1,10 +1,10 @@
 import React, {PropTypes} from 'react';
 
-const HotelSort = ({hotels}) => {
+const HotelSort = ({hotels, query, sortFilters}) => {
   return (
     <div className="row">
       <div className="col-md-8">
-        <p> <b>{hotels.length}</b> hotels in <b>Sydney.</b></p>
+        <p> <b>{hotels.length}</b> hotels in <b>{query.location}.</b></p>
       </div>
       <div className="col-md-4" align="right">
         <div className="dropdown" >
@@ -25,7 +25,9 @@ const HotelSort = ({hotels}) => {
 };
 
 HotelSort.propTypes = {
-  hotels: PropTypes.array.isRequired
+  hotels: PropTypes.array.isRequired,
+  query: PropTypes.object.isRequired,
+  sortFilters: PropTypes.object.isRequired
 };
 
 export default HotelSort;

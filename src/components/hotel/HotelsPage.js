@@ -9,23 +9,51 @@ class HotelsPage extends React.Component {
 
   render() {
     const {hotels} = this.props;
+    const {query} = this.props;
+    const {sortFilters} = this.props;
 
     return (
       <div>
         <h1>Hotels</h1>
-        <HotelList hotels={hotels}/>
+        <HotelList
+          hotels={hotels}
+          query={query}
+          sortFilters={sortFilters}
+        />
       </div>
     );
   }
 }
 
 HotelsPage.propTypes = {
-  hotels: PropTypes.array.isRequired
+  hotels: PropTypes.array.isRequired,
+  query: PropTypes.object.isRequired,
+  sortFilters: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state, ownProps) {
+  let hotels = [];
+  if (state.hotels.hotels) {
+    hotels = state.hotels.hotels;
+  }
+
+  let query = {};
+  if (state.hotels.query) {
+    query = state.hotels.query;
+  }
+
+  let sortFilters = {};
+  if (state.hotels.sort_filters) {
+    sortFilters = state.hotels.sort_filters;
+  }
+
+  console.log(hotels);
+  console.log(query);
+  console.log(sortFilters);
   return {
-    hotels: state.hotels
+    hotels: hotels,
+    query: query,
+    sortFilters: sortFilters
   };
 }
 
