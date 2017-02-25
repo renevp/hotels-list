@@ -17,24 +17,24 @@ nav {
 
 /*Quantas hotels styles*/
 
-h4.hotel-name {
+.hotel-name {
   font-weight: bold;
   margin-top: 0px;
   margin-bottom: 0px;
 }
 
-p.hotel-address {
+.hotel-address {
   font-size: 0.875em;
   color: grey;
 }
 
-p.room-name {
+.room-name {
   font-size: 0.875em;
   text-decoration: underline;
   color: red;
 }
 
-p.free-cancellation {
+.free-cancellation {
   font-size: 0.875em;
   color: green;
 }
@@ -43,7 +43,7 @@ div.points-earned {
   text-align: right;
 }
 
-p.points-earned-title {
+.points-earned-title {
   font-size: 0.875em;
   color: orange;
   margin-top: 0px;
@@ -59,7 +59,7 @@ div.price {
   text-align: right;
 }
 
-p.total-nights {
+.total-nights {
   font-size: 0.875em;
   margin-top: 0px;
   margin-bottom: 0px;
@@ -75,7 +75,7 @@ span.price {
   font-size: 0.5em;
 }
 
-p.savings {
+.savings {
   color: red;
 }
 

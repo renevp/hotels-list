@@ -1,11 +1,21 @@
 import React, {PropTypes} from 'react';
 
-const FreeCancellation = () => {
+function freeCancellation(room){
+  if (room.free_cancellation == "true") {
+    return <div><span className="glyphicon glyphicon-ok-circle" aria-hidden="true"></span>Free cancellation</div>;
+  }
+}
+
+const FreeCancellation = ({room}) => {
   return (
     <p className="free-cancellation">
-      <span className="glyphicon glyphicon-ok-circle" aria-hidden="true"></span> Free cancellation
+      {freeCancellation(room)}
     </p>
   );
+};
+
+FreeCancellation.propTypes = {
+  room: PropTypes.object.isRequired
 };
 
 export default FreeCancellation;
