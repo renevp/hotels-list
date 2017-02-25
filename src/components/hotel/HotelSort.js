@@ -1,25 +1,20 @@
 import React, {PropTypes} from 'react';
+import SelectInput from '../common/SelectInput';
 
-const HotelSort = ({hotels, query, sortFilters}) => {
+const HotelSort = ({hotels, query, sortFilters, onChange}) => {
   return (
     <div className="row">
       <div className="col-md-8">
         <p> <b>{hotels.length}</b> hotels in <b>{query.location}.</b></p>
       </div>
-      <div className="col-md-4" align="right">
-        <div className="dropdown" >
-          <label htmlFor="dropdownMenu1">Sort by</label>
-          <button className="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-            Top Deals
-            <span className="caret"></span>
-          </button>
-          <ul className="dropdown-menu" aria-labelledby="dropdownMenu1">
-            <li><a href="#">Price (high-low)</a></li>
-            <li><a href="#">Price (low-high)</a></li>
-            <li><a href="#">Name (A-Z)</a></li>
-          </ul>
-        </div>
-      </div>
+      <form>
+        <SelectInput
+          name="sortId"
+          label="Sort by"
+          defaultOption="Top Deals"
+          onChange={onChange}
+          options={sortFilters}/>
+      </form>
     </div>
   );
 };
@@ -27,7 +22,8 @@ const HotelSort = ({hotels, query, sortFilters}) => {
 HotelSort.propTypes = {
   hotels: PropTypes.array.isRequired,
   query: PropTypes.object.isRequired,
-  sortFilters: PropTypes.object.isRequired
+  sortFilters: PropTypes.array.isRequired,
+  onChange: React.PropTypes.func.isRequired
 };
 
 export default HotelSort;

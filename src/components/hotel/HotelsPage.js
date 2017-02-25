@@ -1,10 +1,28 @@
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import * as hotelActions from '../../actions/hotelActions';
 import HotelList from './HotelList';
 
 class HotelsPage extends React.Component {
   constructor(props, context) {
     super(props, context);
+
+    this.sortList = this.sortList.bind(this);
+  }
+
+  sortList(event) {
+    // const field = event.target.name;
+    // let course = this.state.course;
+    // course[field] = event.target.value;
+    // return this.setState({course: course});
+
+    this.props.actions.listHotels()
+      // .then(() => this.redirect())
+      .catch(error => {
+        // toastr.error(error);
+        // this.setState({saving: false});
+      });
   }
 
   render() {
@@ -19,6 +37,7 @@ class HotelsPage extends React.Component {
           hotels={hotels}
           query={query}
           sortFilters={sortFilters}
+          onChange={this.sortList}
         />
       </div>
     );
@@ -28,7 +47,7 @@ class HotelsPage extends React.Component {
 HotelsPage.propTypes = {
   hotels: PropTypes.array.isRequired,
   query: PropTypes.object.isRequired,
-  sortFilters: PropTypes.object.isRequired
+  sortFilters: PropTypes.array.isRequired
 };
 
 function mapStateToProps(state, ownProps) {
@@ -42,9 +61,12 @@ function mapStateToProps(state, ownProps) {
     query = state.hotels.query;
   }
 
-  let sortFilters = {};
+  let sortFilters = [];
   if (state.hotels.sort_filters) {
-    sortFilters = state.hotels.sort_filters;
+    let sorts = state.hotels.sort_filters;
+    Object.keys(sorts).forEach(key => {
+      sortFilters.push({value: key, text: sorts[key]});
+    });
   }
 
   console.log(hotels);
@@ -57,4 +79,10 @@ function mapStateToProps(state, ownProps) {
   };
 }
 
-export default connect(mapStateToProps)(HotelsPage);
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(hotelActions, dispatch)
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(HotelsPage);
