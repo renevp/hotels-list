@@ -3,16 +3,17 @@ import FreeCancellation from './FreeCancellation';
 import PointsEarned from './PointsEarned';
 import Price from './Price';
 
-function formatTitle(title){
-  if (title.length > 31) {
-    return <h5 className="hotel-name">{title.substr(0, 31) + '...'}</h5>;
-  } else {
-    return <h5 className="hotel-name">{title}</h5>;
-  }
-}
-
 const HotelListRow = ({hotel}) => {
   const room = hotel.rooms[0];
+  const title = hotel.title;
+
+  let formatTitle;
+  if (title.length > 31) {
+    formatTitle = <h5 className="hotel-name">{title.substr(0, 31) + '...'}</h5>;
+  } else {
+    formatTitle = <h5 className="hotel-name">{title}</h5>;
+  }
+
   return (
     <div className="row">
       <div className="col-xs-3 hotel-image">
@@ -22,7 +23,7 @@ const HotelListRow = ({hotel}) => {
       <div className="col-xs-9">
         <div className="row">
           <div className="col-xs-12">
-            {formatTitle(hotel.title)}
+            {formatTitle}
             <p className="hotel-address">{hotel.address}</p>
           </div>
         </div>
