@@ -48,7 +48,6 @@ class HotelsPage extends React.Component {
 
     return (
       <div>
-        <h1>Hotels</h1>
         <HotelList
           hotels={this.state.hotels}
           query={query}

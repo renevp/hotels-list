@@ -21,6 +21,7 @@ nav {
   font-weight: bold;
   margin-top: 0px;
   margin-bottom: 0px;
+  display: inline;
 }
 
 .hotel-address {
@@ -101,4 +102,9 @@ span.price {
 .container-fluid {
   width: 700px;
   max-width: none !important;
+}
+
+.glyphicon.glyphicon-one-fine-dot:before {
+    content:"\25cf";
+    font-size: 1.5em;
 }

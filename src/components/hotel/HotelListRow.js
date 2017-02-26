@@ -1,4 +1,6 @@
 import React, {PropTypes} from 'react';
+import ReactDOM from 'react-dom';
+import StarRatingComponent from 'react-star-rating-component';
 import FreeCancellation from './FreeCancellation';
 import PointsEarned from './PointsEarned';
 import Price from './Price';
@@ -14,6 +16,13 @@ const HotelListRow = ({hotel}) => {
     formatTitle = <h5 className="hotel-name">{title}</h5>;
   }
 
+  let ratingType;
+  if (hotel.rating_type == 'star') {
+    ratingType = () => <span className="glyphicon glyphicon-star" aria-hidden="true"></span>;
+  } else if (hotel.rating_type == 'self'){
+    ratingType = () => <span className="glyphicon glyphicon-one-fine-dot" aria-hidden="true"></span>;
+  }
+
   return (
     <div className="row">
       <div className="col-xs-3 hotel-image">
@@ -23,7 +32,14 @@ const HotelListRow = ({hotel}) => {
       <div className="col-xs-9">
         <div className="row">
           <div className="col-xs-12">
-            {formatTitle}
+            {formatTitle} &nbsp;&nbsp;
+            <StarRatingComponent
+                name="rating"
+                editing={false}
+                renderStarIcon={ratingType}
+                starCount={5}
+                value={hotel.rating}
+            />
             <p className="hotel-address">{hotel.address}</p>
           </div>
         </div>
