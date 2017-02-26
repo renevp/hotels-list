@@ -12,35 +12,33 @@ class HotelsPage extends React.Component {
       hotels: Object.assign([], props.hotels)
     };
 
-    this.sortList = this.sortList.bind(this);
+    this.changeSort = this.changeSort.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
     this.setState({hotels: Object.assign([], nextProps.hotels)});
   }
 
-  sortList(event) {
+  sortList(sort, hotels){
+    switch (sort) {
+      case 'name-asc':
+        return _.orderBy(hotels, ['title'], ['asc']);
+      case 'price-desc':
+        return _.orderBy(hotels, ['rooms[0].price'], ['desc']);
+      case 'price-asc':
+        return _.orderBy(hotels, ['rooms[0].price'], ['asc']);
+      case 'top-deals':
+        return _.orderBy(hotels, ['rooms[0].savings'], ['asc']);
+      default:
+        return hotels;
+    }
+  }
+
+  changeSort(event) {
     const sort = event.target.value;
     const {hotels} = this.props;
 
-    let sortedHotels;
-    switch (sort) {
-      case 'name-asc':
-        sortedHotels = _.orderBy(hotels, ['title'], ['asc']);
-        break;
-      case 'price-desc':
-        sortedHotels = _.orderBy(hotels, ['rooms[0].price'], ['desc']);
-        break;
-      case 'price-asc':
-        sortedHotels = _.orderBy(hotels, ['rooms[0].price'], ['asc']);
-        break;
-      case 'top-deals':
-        sortedHotels = _.orderBy(hotels, ['rooms[0].savings'], ['asc']);
-        break;
-      default:
-    }
-
-    return this.setState({hotels: sortedHotels});
+    return this.setState({hotels: this.sortList(sort, hotels)});
   }
 
   render() {
@@ -55,7 +53,7 @@ class HotelsPage extends React.Component {
           hotels={this.state.hotels}
           query={query}
           sortFilters={sortFilters}
-          onChange={this.sortList}
+          onChange={this.changeSort}
         />
       </div>
     );
@@ -68,17 +66,23 @@ HotelsPage.propTypes = {
   sortFilters: PropTypes.array.isRequired
 };
 
-function mapStateToProps(state, ownProps) {
-  let hotels = [];
+function getHotels(state){
   if (state.hotels.hotels) {
-    hotels = state.hotels.hotels;
+    return state.hotels.hotels;
+  }else {
+    return [];
   }
+}
 
-  let query = {};
+function getQuery(state){
   if (state.hotels.query) {
-    query = state.hotels.query;
+    return state.hotels.query;
+  }else {
+    return {};
   }
+}
 
+function getSortFilters(state){
   let sortFilters = [];
   if (state.hotels.sort_filters) {
     let sorts = state.hotels.sort_filters;
@@ -87,10 +91,14 @@ function mapStateToProps(state, ownProps) {
     });
   }
 
+  return sortFilters;
+}
+
+function mapStateToProps(state, ownProps) {
   return {
-    hotels: hotels,
-    query: query,
-    sortFilters: sortFilters
+    hotels: getHotels(state),
+    query: getQuery(state),
+    sortFilters: getSortFilters(state)
   };
 }
 
