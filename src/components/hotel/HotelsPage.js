@@ -15,6 +15,10 @@ class HotelsPage extends React.Component {
     this.sortList = this.sortList.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({hotels: Object.assign([], nextProps.hotels)});
+  }
+
   sortList(event) {
     const sort = event.target.value;
     const {hotels} = this.props;
